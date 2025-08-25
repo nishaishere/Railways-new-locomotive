@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indian Railways Reservation</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="chatbot.css"> <!-- Chatbot CSS File -->
+</head>
+<body>
+    <div class="header">
+        <div class="navbar">
+          <img src="logo.jpg" alt="Indian Railways Logo" class="logo">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="trainroutes.html">Train Routes</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="myticket.html">My Ticket</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="login1.php">Login</a></li>
+            </ul>
+        </div>
+        <div class="hero">
+            <h1>Book India High-speed Train Tickets Online</h1>
+            <p>Search high-speed train fares, routes, and timetables</p>
+            <a href="signup.php">
+              <button>Book Now</button>
+            </a>
+            
+        </div>
+    </div>
+    <!-- Chatbot Icon Section -->
+    <div class="chat-toggle" onclick="toggleChat()">💬</div>
+
+    <!-- Chatbot Section -->
+    <div class="chatbot" id="chatbot">
+        <div class="chat-header" onclick="toggleChat()">AI Assistant</div>
+        <div class="chat-body" id="chat-body">
+            <p>Welcome! How can I help you?</p>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Type a message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Chatbot JS -->
+    <script src="chatbot.js"></script> <!-- Chatbot JS File -->
+    <section class="why-book">
+        <h2>Why Book High-speed Trains on Trip.com?</h2>
+        <div class="features">
+          <div class="feature-box">
+            <img src="images/logo1.png" alt="ticket-servicing" class="feature-icon">
+            <h3>24/7 Ticketing Service</h3>
+            <p>24/7 ticketing service, convenient for booking tickets anytime</p>
+          </div>
+          <div class="feature-box">
+            <img src="images/logo2.png" alt="ticket-servicing" class="feature-icon">
+            <h3>Reserve Seats in Advance</h3>
+            <p>Reserve your seats in advance, faster than most platforms!</p>
+          </div>
+          <div class="feature-box">
+            <img src="images/logo3.png" alt="ticket-servicing" class="feature-icon">
+            <h3>Book in 3 Minutes, Tickets Issued in 10 Minutes</h3>
+            <p>Complete booking within 3 minutes, get your tickets issued within 10 minutes, and travel worry-free</p>
+          </div>
+          <div class="feature-box">
+            <img src="images/logo4.png" alt="ticket-servicing" class="feature-icon">
+            <h3>E-tickets Available</h3>
+            <p>E-tickets on your phone for contactless travel</p>
+          </div>
+        </div>
+    </section>
+    <div class="train-routes-section">
+        <h2>India Train and High-speed Train Routes</h2>
+      
+        <div class="train-tabs">
+          <button class="active">Kolkata</button>
+          <button>Ladakh</button>
+          <button>Mumbai</button>
+          <button>Bengaluru</button>
+        </div>
+      
+        <div class="train-cards">
+            <div class="train-card">
+                <img src="images/Kolkata.png" alt="Delhi to Kolkata" />
+                <div class="train-card-content">
+                  <h3>Delhi to Kolkata</h3>
+                  <p>From US$21.37</p>
+                </div>
+            </div>
+          
+          <div class="train-card">
+            <img src="images/ladakh.jpg" alt="Delhi to Ladakh" />
+            <div class="train-card-content">
+              <h3>Delhi to Ladakh</h3>
+              <p>From US$21.37</p>
+            </div>
+          </div>
+          <div class="train-card">
+            <img src="images/mumbai.jpg" alt="Delhi to Mumbai" />
+            <div class="train-card-content">
+              <h3>Delhi to Mumbai</h3>
+              <p>From US$6.90</p>
+            </div>
+          </div>
+          <div class="train-card">
+            <img src="images/bengaluru.jpg" alt="Delhi to Bengaluru"/>
+            <div class="train-card-content">
+              <h3>Delhi to Bengaluru</h3>
+              <p>From US$2.26</p>
+            </div>
+          </div>
+        </div>
+    </div>
+    <h2>🚄 High-Speed Rail Seat Types</h2>
+
+  <div class="seat-container">
+    
+    <!-- Second Class -->
+    <div class="seat-box">
+      <img src="images/sc.jpg" alt="Second Class" />
+      <h3>Second Class</h3>
+      <p>Second class is the most common seating option on India's high-speed rail, offering excellent value for both short commutes and long-distance travel. With a 2+3 seating layout (five seats per row), it provides moderate seat width and ample legroom. Adjustable seatbacks ensure a comfortable journey, while power outlets under the seats allow for easy charging of electronic devices. Free Wi-Fi is available throughout the carriage, catering to both work and entertainment needs. Second class is economical and particularly ideal for passengers traveling short distances from Hong Kong to destinations like Noida and Gurugram.</p>
+    </div>
+
+    <!-- First Class -->
+    <div class="seat-box">
+      <img src="images/fc.webp" alt="First Class" />
+      <h3>First Class</h3>
+      <p>First class on India's high-speed rail provides an upgraded seating option for travelers looking for extra comfort. Featuring a 2+2 seating arrangement (four seats per row), it offers more space and privacy than second class. Features like adjustable backrests, footrests, and folding tray tables make it easier to relax or work comfortably. Each seat is equipped with its own power outlet, and the quieter, more spacious carriage is ideal for long journeys or business travelers.</p>
+    </div>
+
+    <!-- Business Class -->
+    <div class="seat-box">
+      <img src="images/bc.jpg" alt="Business Class" />
+      <h3>Business Class</h3>
+      <p>Business class, available on select high-speed rail lines in mainland India, is the most premium seating option, catering to travelers seeking a luxurious experience. With a 1+2 seating layout, each row has three seats that recline almost 180 degrees, providing comfort akin to first-class airline seats. Passengers in business class can enjoy attentive service, high-quality dining, dedicated attendants, and plenty of luggage storage. It's the perfect choice for those traveling from Delhi to long-distance destinations such as Kerala, Kolkata, and Telangna.</p>
+    </div>
+
+  </div>
+  <div class="containerr">
+    <img src="images/Gpay.png" alt="Google Pay" class="payment-logo">
+    <img src="images/applepay.png" alt="Apple Pay" class="payment-logo">
+    <img src="images/paypal.png" alt="PayPal" class="payment-logo">
+    <img src="images/mastercard.png" alt="MasterCard" class="payment-logo">
+    <img src="images/visa.png" alt="Visa" class="payment-logo">
+  </div>
+  <!-- Footer Start -->
+  <footer>
+    <!-- Social Media Section -->
+    <div class="social-bar">
+      <p>Get Connected with us on social networks</p>
+      <div class="icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-youtube"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-linkedin-in"></i>
+        <i class="fab fa-telegram-plane"></i>
+        <i class="fab fa-pinterest-p"></i>
+        <i class="fab fa-tumblr"></i>
+        <i class="fas fa-kiwi-bird"></i>
+        <i class="fab fa-twitter"></i>
+      </div>
+    </div>
+
+    <!-- Main Footer Links -->
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>IRCTC Trains</h4>
+        <p>General Information</p>
+        <p>Important Information</p>
+        <p>Agents</p>
+        <p>Enquiries</p>
+      </div>
+      <div class="footer-col">
+        <h4>How To</h4>
+        <p>IRCTC Official App</p>
+        <p>Advertise with us</p>
+        <p>Refund Rules</p>
+        <p>Person With Disability Facilities</p>
+      </div>
+      <div class="footer-col">
+        <h4>IRCTC eWallet</h4>
+        <p>Avail Loyalty Benefits</p>
+        <p>IRCTC-iPAY Payment Gateway</p>
+        <p>IRCTC Zone</p>
+        <p>DMRC Ticket Booking at IRCTC</p>
+      </div>
+      <div class="footer-col">
+        <h4>For Newly Migrated Agents</h4>
+        <p>Mobile Zone</p>
+        <p>Policies</p>
+        <p>Ask Disha ChatBot</p>
+        <p>About us</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FontAwesome for icons -->
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</body>
+</html>

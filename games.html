@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Gamification & Rewards</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: #f8f9fa;
+      color: #333;
+    }
+    header {
+      background: #343a40;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    .container {
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 1em 0;
+      padding: 1.5em;
+    }
+    .wheel-container {
+      position: relative;
+      width: 250px;
+      height: 250px;
+      margin: 1em auto;
+    }
+    .wheel {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 10px solid #007bff;
+      background: conic-gradient(#28a745 0% 16.6%, #ffc107 16.6% 33.3%, #17a2b8 33.3% 50%, #dc3545 50% 66.6%, #6f42c1 66.6% 83.3%, #fd7e14 83.3% 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 4s cubic-bezier(0.33, 1, 0.68, 1);
+    }
+    .pointer {
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-bottom: 30px solid #343a40;
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 1em;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .quiz {
+      margin-top: 1em;
+    }
+    .quiz-question {
+      margin: 1em 0;
+    }
+    .quiz-question input[type="radio"] {
+      margin-right: 0.5em;
+    }
+    .result {
+      margin-top: 1em;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🎉 Travel Gamification & Rewards 🎉</h1>
+  </header>
+  <div class="container">
+    <div class="card">
+      <h2>🏅 Loyalty Points</h2>
+      <p>Earn points on every train booking, completing quizzes, and maintaining your travel streak!</p>
+    </div>
+
+    <div class="card">
+      <h2>🔥 Travel Streaks</h2>
+      <p>Travel 3 days in a row and earn a 20% bonus on your points!</p>
+    </div>
+
+    <div class="card">
+      <h2>🎁 Refer & Win</h2>
+      <p>Refer friends and earn up to 500 bonus points when they book their first ticket.</p>
+    </div>
+
+    <div class="card">
+      <h2>🎯 Spin the Wheel</h2>
+      <div class="wheel-container">
+        <div class="pointer"></div>
+        <div class="wheel" id="wheel">🎡</div>
+      </div>
+      <button onclick="spinWheel()">Spin Now</button>
+      <p id="wheel-result"></p>
+    </div>
+
+    <div class="card">
+      <h2>🧠 Railway Puzzle Quiz</h2>
+      <div class="quiz">
+        <div class="quiz-question">
+          <p>1. What is the fastest train in India?</p>
+          <label><input type="radio" name="q1" value="B"> Vande Bharat Express</label><br>
+          <label><input type="radio" name="q1" value="A"> Rajdhani Express</label><br>
+          <label><input type="radio" name="q1" value="C"> Shatabdi Express</label>
+        </div>
+        <div class="quiz-question">
+          <p>2. Which railway zone has the longest route?</p>
+          <label><input type="radio" name="q2" value="A"> Eastern Railway</label><br>
+          <label><input type="radio" name="q2" value="B"> Western Railway</label><br>
+          <label><input type="radio" name="q2" value="C"> Northern Railway</label>
+        </div>
+        <div class="quiz-question">
+          <p>3. Where is the Indian Railways’ locomotive production unit CLW located?</p>
+          <label><input type="radio" name="q3" value="A"> Chennai</label><br>
+          <label><input type="radio" name="q3" value="B"> Chittaranjan</label><br>
+          <label><input type="radio" name="q3" value="C"> Varanasi</label>
+        </div>
+        <button onclick="checkQuiz()">Submit Quiz</button>
+        <div class="result" id="quizResult"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const wheel = document.getElementById("wheel");
+    const wheelResult = document.getElementById("wheel-result");
+    const prizes = ['5% OFF', 'Try Again', '10% OFF', 'Free Coffee', 'Spin Again', '20% OFF'];
+
+    function spinWheel() {
+      const spins = 5 + Math.floor(Math.random() * 5); // 5 to 9 full spins
+      const degree = 360 * spins + Math.floor(Math.random() * 360);
+      wheel.style.transform = `rotate(${degree}deg)`;
+
+      const prizeIndex = Math.floor((degree % 360) / (360 / prizes.length));
+      const result = prizes[(prizes.length - prizeIndex) % prizes.length];
+
+      setTimeout(() => {
+        wheelResult.textContent = '🎉 You got: ' + result;
+      }, 4000); // Wait for the wheel to stop
+    }
+
+    function checkQuiz() {
+      let score = 0;
+      const answers = { q1: 'B', q2: 'C', q3: 'B' };
+      let total = Object.keys(answers).length;
+
+      for (let q in answers) {
+        const userAns = document.querySelector(`input[name="${q}"]:checked`)?.value;
+        if (userAns === answers[q]) score++;
+      }
+
+      document.getElementById('quizResult').textContent =
+        `You scored ${score}/${total}! ${score === total ? 'Great job! 🚂' : 'Keep learning! 🙌'}`;
+    }
+  </script>
+</body>
+</html>

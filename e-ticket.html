@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Ticket Generator</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: url('https://source.unsplash.com/1600x900/?railway,station') center/cover;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            backdrop-filter: blur(5px);
+        }
+        .container {
+            width: 50%;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .container:hover {
+            transform: scale(1.03);
+        }
+        .image-section {
+            width: 100%;
+            height: 200px;
+            background: url('https://source.unsplash.com/800x400/?train,tracks') center/cover;
+            border-radius: 15px 15px 0 0;
+        }
+        .ticket {
+            width: 90%;
+            padding: 25px;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            color: white;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(-20px);
+            opacity: 0;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+        .ticket h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        .ticket .info {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .ticket .info:last-child {
+            border-bottom: none;
+        }
+        .ticket strong {
+            font-weight: 600;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="image-section"></div>
+        <div class="ticket" id="ticket">
+            <h3>Train Ticket</h3>
+            <div class="info"><strong>Name:</strong> <span id="tName"></span></div>
+            <div class="info"><strong>Train Number:</strong> <span id="tTrain"></span></div>
+            <div class="info"><strong>Seat:</strong> <span id="tSeat"></span></div>
+            <div class="info"><strong>Class:</strong> <span id="tClass"></span></div>
+            <div class="info"><strong>Date:</strong> <span id="tDate"></span></div>
+            <div class="info"><strong>Route:</strong> <span id="tRoute"></span></div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            document.getElementById("tName").innerText = urlParams.get("name") || "John Doe";
+            document.getElementById("tTrain").innerText = urlParams.get("train") || "12345";
+            document.getElementById("tSeat").innerText = urlParams.get("seat") || "A1";
+            document.getElementById("tClass").innerText = urlParams.get("class") || "AC";
+            document.getElementById("tDate").innerText = urlParams.get("date") || "2025-04-02";
+            document.getElementById("tRoute").innerText = urlParams.get("route") || "City A - City B";
+        });
+    </script>
+</body>
+</html>

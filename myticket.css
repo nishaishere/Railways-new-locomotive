@@ -1,0 +1,180 @@
+/* Global Styling */
+body {
+    background: url('https://www.railway-technology.com/wp-content/uploads/sites/13/2018/06/indianrailways.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+/* Apply a semi-transparent dark overlay for better readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    z-index: -1;
+}
+
+/* Navbar Styling */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 12px 0;
+    color: #fff;
+    backdrop-filter: blur(10px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar .logo a {
+    color: #ffcc00;
+    font-size: 26px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: all 0.3s ease-in-out;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+}
+
+/* My Ticket Section Styling */
+.ticket-container {
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    margin: 30px auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.ticket-container h2 {
+    font-size: 36px;
+    font-weight: bold;
+    color: #ffcc00;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.ticket-info {
+    margin-top: 30px;
+}
+
+.ticket-info h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #ffcc00;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+table, th, td {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+    color: white;
+}
+
+th {
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 18px;
+}
+
+td {
+    font-size: 16px;
+}
+
+tbody tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Footer Styling */
+footer {
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 30px;
+    border-radius: 0 0 12px 12px;
+}
+
+footer a {
+    color: #ffcc00;
+    text-decoration: none;
+    margin: 0 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+    color: white;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .ticket-container {
+        padding: 30px 15px;
+    }
+
+    table th, table td {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    .ticket-info h3 {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    table th, table td {
+        font-size: 12px;
+        padding: 8px;
+    }
+
+    .ticket-info h3 {
+        font-size: 20px;
+    }
+}
